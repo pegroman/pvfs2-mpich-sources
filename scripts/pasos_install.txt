@@ -1,0 +1,23 @@
+1. install_mpi.sh
+2. install_depen.sh
+3. Compilar en un nodo servidor orange
+3a  ./prepare
+3b. ./configure --prefix=/root/orangefs --disable-segv-backtrace --enable-shared
+3c. make
+3d. make install
+4. Generar arhivo configuracion servidor
+4a. /root/orangefs/bin/pvfs2-genconfig /root/orangefs/etc/orangefs-server.conf
+5. Copiar instalacion en todos los nodos. Ejecutar script copiar_instalacion.sh y tab.sh
+6. agregar variable de entorno LD_LIBRARY_PATH en todos los nodos. 
+6a. Ejecutar variable_ld.sh (solo la primera vez que se instala)
+6b. Reiniciar todos los nodos con ./reboot.sh
+7. Instalar ior. Script install_ior.sh
+8. Pasar archivo /etc/hosts en todos los nodos. Script copiar_hosts.sh
+9. Crear storage space en todos los data y meta. Script storage_space.sh (solo en la primera instalacion)
+10. levantar servers. script levantar_servers.sh
+11. Crear punto de montaje en clientes. script punto_montaje.sh
+12. levantar clientes. script levantar_clientes.sh
+13. Configurar debug en clientes. script debug_cliente.sh
+14. source cliaux y serveraux en todos. script cli_ser_aux.sh
+15. montar filesystem en clientes. script ./montar_clientes.sh
+16. ejecutar . mpirun --allow-run-as-root -np 2 ./ior -a MPIIO -b 512m -t 512n -C -o /home/root/mnt/orangefs/1

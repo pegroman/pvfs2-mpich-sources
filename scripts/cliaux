@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PVFS2_DEBUGFILE=/tmp/pvfs2-client.log
+export PVFS2_DEBUGMASK=peg
+export EventLogging=peg

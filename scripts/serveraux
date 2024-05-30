@@ -1,0 +1,5 @@
+#!/bin/bash
+
+orangefs/bin/pvfs2-set-eventmask -m /mnt/vol_1tb/mnt/orangefs -e peg
+orangefs/bin/pvfs2-set-debugmask -m /mnt/vol_1tb/mnt/orangefs peg
+
